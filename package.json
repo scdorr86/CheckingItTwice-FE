@@ -1,8 +1,8 @@
 {
-  "name": "next-firebase-starter",
+  "name": "Checking it twice",
   "private": true,
   "version": "1.0.0",
-  "author": "Trinity Christiana",
+  "author": "Cameron Dorris",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
