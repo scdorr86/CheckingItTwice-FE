@@ -15,7 +15,7 @@ import { clientCredentials } from './client';
 // });
 
 const checkUser = (uid) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/checkuser/${uid}`, {
+  fetch(`http://localhost:5244/checkuser/${uid}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -24,8 +24,8 @@ const checkUser = (uid) => new Promise((resolve, reject) => {
   })
     .then(async (res) => {
       let data;
-      if (res.ok) {
-        data = await res.json();
+      if (res?.ok) {
+        data = await res?.json();
         resolve(data);
       }
     })

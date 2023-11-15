@@ -18,5 +18,16 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color: white;
+}
+
+.Nav {
+  background-color: whitesmoke;
+}
+
+.logo {
+  border-radius: 0px;
+  height: 75px;
+  width: 175px;
+  margin-right: 10px;
 }
