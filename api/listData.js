@@ -77,6 +77,18 @@ const addGift = (listId, giftId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const removeGift = (listId, giftId) => new Promise((resolve, reject) => {
+  fetch(`http://localhost:5244/lists/${listId}/gifts/${giftId}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
   getAllLists,
   getSingleList,
@@ -84,4 +96,5 @@ export {
   updateList,
   createList,
   addGift,
+  removeGift,
 };
