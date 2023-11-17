@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 // import { Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import Link from 'next/link';
 import { useAuth } from '../../utils/context/authContext';
 import { getAllLists } from '../../api/listData';
 import ListCard from '../../components/cards/ListCard';
@@ -24,8 +26,6 @@ function ListsPage() {
 
   return (
     <>
-      {/* <AddOrderForm /> */}
-      {/* <OrderForm /> */}
       <div
         className="text-center d-flex flex-column justify-content-center align-content-center"
         style={{
@@ -50,6 +50,12 @@ function ListsPage() {
           ))
         )}
       </div>
+      <Link passHref href="/lists/new">
+        <Button>New List</Button>
+      </Link>
+      <Link passHref href="/giftees/new">
+        <Button>New Giftee</Button>
+      </Link>
     </>
   );
 }
