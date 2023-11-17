@@ -111,7 +111,7 @@ function ListForm({ listObj }) {
         </Form.Select>
       </FloatingLabel>
 
-      <Button type="submit" className="createMem">{listObj.id ? 'Update' : 'Create New'} List</Button>
+      <Button type="submit" className="btn btn-danger">{listObj.id ? 'Update' : 'Create New'} List</Button>
     </Form>
   );
 }
