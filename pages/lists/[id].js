@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { getSingleList, removeGift } from '../../api/listData';
 import AddGiftForm from '../../components/forms/AddGiftModal';
+import NewGiftForm from '../../components/forms/NewGiftModal';
 
 export default function ListDetails() {
   const [list, setList] = useState({});
@@ -26,12 +27,19 @@ export default function ListDetails() {
   return (
     <>
       <div>
-        <h1>{list.listName}s List</h1>
-        <h3>For: {list?.giftee?.firstName}</h3>
+        <div className="d-flex justify-content-between align-items-center">
+          <div>
+            <h1>{list.listName}s List</h1>
+            <h3>For: {list?.giftee?.firstName}</h3>
+          </div>
+          <div>
+            <h4>List Total: ${list.listTotal}</h4>
+          </div>
+        </div>
       </div>
 
-      <div>
-        <h4>Gifts on the List</h4>
+      <div className="mt-5">
+        {/* <h4>Gifts on the List</h4> */}
         <table className="table table-borderless">
           <thead>
             <tr>
@@ -60,8 +68,9 @@ export default function ListDetails() {
         </table>
       </div>
 
-      <div>
+      <div className="mt-5 d-flex justify-content-between align-items-center">
         <AddGiftForm listId={id} />
+        <NewGiftForm listId={id} />
       </div>
     </>
   );
