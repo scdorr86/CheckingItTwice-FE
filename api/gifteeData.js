@@ -27,6 +27,23 @@ const getSingleGiftee = (gifteeId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getUserGiftees = (userId) => new Promise((resolve, reject) => {
+  fetch(`http://localhost:5244/userGiftees/${userId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(async (res) => {
+      let data;
+      if (res?.ok) {
+        data = await res?.json();
+        resolve(data);
+      }
+    })
+    .catch(reject);
+});
+
 const createGiftee = (payload) => new Promise((resolve, reject) => {
   fetch('http://localhost:5244/giftee', {
     method: 'POST',
@@ -56,6 +73,7 @@ const updateGiftee = (gifteeid, payload) => new Promise((resolve, reject) => {
 export {
   getAllGiftees,
   getSingleGiftee,
+  getUserGiftees,
   // deleteSingleGift,
   updateGiftee,
   createGiftee,

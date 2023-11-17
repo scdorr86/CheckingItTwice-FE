@@ -24,8 +24,11 @@ export default function NavBar() {
             <Link passHref href="/gifts/gifts">
               <Nav.Link>My Gifts</Nav.Link>
             </Link>
+            <Link passHref href="/giftees/giftees">
+              <Nav.Link>My Giftees</Nav.Link>
+            </Link>
             <Link passHref href="/lists/lists">
-              <Nav.Link>Lists</Nav.Link>
+              <Nav.Link>My Lists</Nav.Link>
             </Link>
             <Button variant="danger" onClick={signOut}>
               Sign Out

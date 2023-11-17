@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FloatingLabel } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { createGift } from '../../api/giftData';
 import { addGift } from '../../api/listData';
 import { useAuth } from '../../utils/context/authContext';
@@ -19,7 +19,7 @@ export default function NewGiftForm({ listId }) {
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState(initialState);
   const { user } = useAuth();
-  const router = useRouter();
+  // const router = useRouter();
 
   const handleClose = () => {
     window.location.reload();
@@ -52,7 +52,7 @@ export default function NewGiftForm({ listId }) {
 
       createGift(payload)
         .then((data) => console.log('create gift data:', data))
-        .then(() => router.push('/lists'));
+        .then(() => handleClose());
     }
   };
 

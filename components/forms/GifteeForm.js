@@ -75,7 +75,7 @@ function GifteeForm({ gifteeObj }) {
         />
       </FloatingLabel>
 
-      <Button type="submit" className="createMem">{gifteeObj.id ? 'Update' : 'Create New'} Giftee</Button>
+      <Button type="submit" className="btn-danger">{gifteeObj.id ? 'Update' : 'Create New'} Giftee</Button>
     </Form>
   );
 }
