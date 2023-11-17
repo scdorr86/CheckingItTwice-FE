@@ -27,6 +27,23 @@ const getSingleGift = (giftId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getUserGifts = (userId) => new Promise((resolve, reject) => {
+  fetch(`http://localhost:5244/gifts/${userId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(async (res) => {
+      let data;
+      if (res?.ok) {
+        data = await res?.json();
+        resolve(data);
+      }
+    })
+    .catch(reject);
+});
+
 const deleteSingleGift = (giftId) => new Promise((resolve, reject) => {
   fetch(`http://localhost:5244/gift/${giftId}`, {
     method: 'DELETE',
@@ -67,6 +84,7 @@ const updateGift = (giftid, payload) => new Promise((resolve, reject) => {
 
 export {
   getAllGifts,
+  getUserGifts,
   getSingleGift,
   deleteSingleGift,
   updateGift,

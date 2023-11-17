@@ -4,17 +4,22 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FloatingLabel } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { getAllGifts } from '../../api/giftData';
+import { useRouter } from 'next/router';
+import { createGift } from '../../api/giftData';
 import { addGift } from '../../api/listData';
 import { useAuth } from '../../utils/context/authContext';
 
-const giftId = 0;
-
+const initialState = {
+  giftName: '',
+  price: 0,
+  imageUrl: '',
+  orderedFrom: '',
+};
 export default function NewGiftForm({ listId }) {
   const [show, setShow] = useState(false);
-  const [giftID, setGiftID] = useState(giftId);
-  const [gifts, setGifts] = useState();
+  const [formData, setFormData] = useState(initialState);
   const { user } = useAuth();
+  const router = useRouter();
 
   const handleClose = () => {
     window.location.reload();
@@ -22,27 +27,33 @@ export default function NewGiftForm({ listId }) {
 
   const handleShow = () => setShow(true);
 
-  useEffect(() => {
-    getAllGifts().then((data) => setGifts(data));
-  }, []);
-
-  const filteredGifts = gifts?.filter(((l) => l?.userId === user?.id));
-  console.log('filtered:', filteredGifts);
-
-  console.log('all gifts and listId:', listId, gifts);
-
   const handleChange = (e) => {
-    const { value } = e.target;
-    setGiftID(value);
+    const { name, value } = e.target;
+    const convertValue = (name === 'price') ? Number(value) : value;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: convertValue,
+    }));
   };
-
-  console.log('check giftID:', giftID);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (listId) {
+      const payload = { ...formData, userId: user.id };
 
-    console.log('on submit:', listId, giftID);
-    addGift(listId, giftID).then(handleClose);
+      // console.log('this is the submit gift payload', payload);
+
+      createGift(payload)
+        .then((data) => addGift(listId, data.id)).then(handleClose);
+    } else {
+      const payload = { ...formData, userId: user.id };
+
+      // console.log('this is the submit gift payload', payload);
+
+      createGift(payload)
+        .then((data) => console.log('create gift data:', data))
+        .then(() => router.push('/lists'));
+    }
   };
 
   return (
@@ -53,7 +64,7 @@ export default function NewGiftForm({ listId }) {
         onClick={handleShow}
         style={{ minWidth: '125px', color: 'green' }}
       >
-        New Gift
+        {listId ? 'New ' : 'Create '}Gift
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -63,24 +74,59 @@ export default function NewGiftForm({ listId }) {
         <Modal.Body className="bg-light">
           <Form onSubmit={handleSubmit}>
 
-            {/* Add Item  */}
-            <FloatingLabel controlId="floatingInput1" label="Gift" className="mb-3" style={{ color: 'red' }}>
-              <Form.Select
+            {/* Gift Name  */}
+            <FloatingLabel controlId="floatingInput1" label="Gift Name" className="mb-3">
+              <Form.Control
                 type="text"
-                placeholder="Your Current Gifts"
-                name="giftId"
-                value={giftID}
+                placeholder="Enter Gift Name"
+                name="giftName"
+                value={formData.giftName}
                 onChange={handleChange}
+                style={{ color: 'red' }}
                 required
-              >
-                <option key="placeholder" value=""> Choose a Gift</option>
-                {filteredGifts?.map((gift) => (
-                  <option style={{ color: 'red' }} key={gift?.id} value={gift?.id}>{gift?.giftName}.....${gift?.price}</option>
-                ))}
-              </Form.Select>
+              />
             </FloatingLabel>
 
-            <Button className="btn btn-dark" type="submit">Add Gift</Button>
+            {/* IMAGE INPUT  */}
+            <FloatingLabel controlId="floatingInput2" label="Gift Image" className="mb-3">
+              <Form.Control
+                type="url"
+                style={{ color: 'red' }}
+                placeholder="Enter an gift image url"
+                name="imageUrl"
+                value={formData.imageUrl}
+                onChange={handleChange}
+                required
+              />
+            </FloatingLabel>
+
+            {/* Ordered From  */}
+            <FloatingLabel controlId="floatingInput1" label="ordered from" className="mb-3">
+              <Form.Control
+                type="text"
+                style={{ color: 'red' }}
+                placeholder="Ordered From"
+                name="orderedFrom"
+                value={formData.orderedFrom}
+                onChange={handleChange}
+                required
+              />
+            </FloatingLabel>
+
+            {/* Price  */}
+            <FloatingLabel controlId="floatingInput1" label="Price" className="mb-3">
+              <Form.Control
+                type="number"
+                style={{ color: 'red' }}
+                placeholder="Gift Price"
+                name="price"
+                value={formData.price}
+                onChange={handleChange}
+                required
+              />
+            </FloatingLabel>
+
+            <Button className="btn btn-success" type="submit">{listId ? 'Add New ' : 'Create '}Gift</Button>
           </Form>
         </Modal.Body>
         <Modal.Footer />
