@@ -22,15 +22,33 @@ const checkUser = (uid) => new Promise((resolve, reject) => {
       Accept: 'application/json',
     },
   })
-    .then(async (res) => {
-      let data;
-      if (res?.ok) {
-        data = await res?.json();
-        resolve(data);
+    .then((resp) => {
+      if (resp.status === 204) {
+        resolve({});
+      } else {
+        resolve(resp.json());
       }
     })
     .catch(reject);
 });
+
+// const checkUser = (uid) => new Promise((resolve, reject) => {
+//   fetch(`http://localhost:5244/checkuser/${uid}`, {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       Accept: 'application/json',
+//     },
+//   })
+//     .then(async (res) => {
+//       let data;
+//       if (res?.ok) {
+//         data = await res?.json();
+//         resolve(data);
+//       }
+//     })
+//     .catch(reject);
+// });
 
 const registerUser = (userInfo) => new Promise((resolve, reject) => {
   fetch(`${clientCredentials.databaseURL}/register`, {

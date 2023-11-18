@@ -6,7 +6,9 @@ import NavBar from '../components/NavBar';
 import RegisterForm from '../components/RegisterForm';
 
 const ViewDirectorBasedOnUserAuthStatus = ({ component: Component, pageProps }) => {
-  const { user, userLoading, updateUser } = useAuth();
+  const {
+    user, userLoading, updateUser,
+  } = useAuth();
 
   // if user state is null, then show loader
   if (userLoading) {

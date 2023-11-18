@@ -16,7 +16,7 @@ export default function Welcome() {
     getYears();
   }, []);
 
-  console.log('user:', user);
+  // console.log('user:', user);
   console.log('years:', years);
 
   return (
