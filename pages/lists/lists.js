@@ -50,7 +50,7 @@ function ListsPage() {
         </>
       ) : (
         <>
-          <div className="d-flex">
+          <div className="d-flex flex-wrap">
             {filteredLists?.map((list) => (
               <ListCard key={list.id} listObj={list} />
             ))}

@@ -24,7 +24,25 @@ const updateUser = (userid, payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getUserByUid = (uid) => new Promise((resolve, reject) => {
+  fetch(`http://localhost:5244/userByUid/${uid}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(async (res) => {
+      let data;
+      if (res?.ok) {
+        data = await res?.json();
+        resolve(data);
+      }
+    })
+    .catch(reject);
+});
+
 export {
   updateUser,
   createUser,
+  getUserByUid,
 };

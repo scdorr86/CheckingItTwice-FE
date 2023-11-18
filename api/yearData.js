@@ -27,6 +27,40 @@ const getSingleYear = (yearId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getUserYears = (userId) => new Promise((resolve, reject) => {
+  fetch(`http://localhost:5244/years/${userId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(async (res) => {
+      let data;
+      if (res?.ok) {
+        data = await res?.json();
+        resolve(data);
+      }
+    })
+    .catch(reject);
+});
+
+const getYearsByUid = (uId) => new Promise((resolve, reject) => {
+  fetch(`http://localhost:5244/yearsByUid/${uId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(async (res) => {
+      let data;
+      if (res?.ok) {
+        data = await res?.json();
+        resolve(data);
+      }
+    })
+    .catch(reject);
+});
+
 const deleteSingleYear = (yearId) => new Promise((resolve, reject) => {
   fetch(`http://localhost:5244/year/${yearId}`, {
     method: 'DELETE',
@@ -68,6 +102,8 @@ const updateYear = (yearid, payload) => new Promise((resolve, reject) => {
 export {
   getAllYears,
   getSingleYear,
+  getYearsByUid,
+  getUserYears,
   deleteSingleYear,
   updateYear,
   createYear,

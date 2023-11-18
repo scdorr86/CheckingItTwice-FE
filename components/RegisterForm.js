@@ -17,7 +17,10 @@ function RegisterForm({ userObj }) {
   const router = useRouter();
   const { user } = useAuth();
 
-  console.log('uid:', user.uid);
+  console.log('checkuid:', user.uid);
+  console.log('USER:', user);
+  console.log('pic:', user.fbUser.photoURL);
+  console.log('email:', user.fbUser.email);
 
   useEffect(() => {
     if (userObj.id) setFormInput(userObj);
@@ -38,7 +41,7 @@ function RegisterForm({ userObj }) {
       updateUser(formInput)
         .then(() => router.push('/'));
     } else {
-      const payload = { ...formInput, userId: user.id, imageUrl: user.photoUrl };
+      const payload = { ...formInput, uid: user.uid, imageUrl: user.fbUser.photoURL };
       console.log('user payload:', payload);
       createUser(payload)
         .then(() => {
