@@ -21,20 +21,19 @@ function ListCard({ listObj }) {
   console.log('this is the year:', listObj?.christmasYear?.listYear);
 
   return (
-    <Card display="flex" className="m-2" style={{ width: '18rem' }}>
+    <Card display="flex" className="m-2 justify-content-between align-items-center p-1" style={{ width: '18rem' }}>
       <Card.Title>{listObj?.listName}</Card.Title>
       <Card.Text>Christmas Year: {listObj?.christmasYear?.listYear}</Card.Text>
       <Card.Text>List Total: ${listObj?.listTotal}</Card.Text>
-      {/* <Card.Text>
-        <strong>Customer Info:</strong> {singlePost?.tags?.[0]?.label}
-      </Card.Text> */}
-      <Button variant="primary" onClick={viewListDetails}>
-        View List
-      </Button>
-      <Button variant="danger" onClick={deleteOrder}>
-        Delete List
-      </Button>
-      {/* <OrderForm orderObj={orderObj} /> */}
+      <Card.Body className="d-flex">
+        <Button className="mb-1 me-1" style={{ maxWidth: '10rem', maxHeight: '2.25rem' }} variant="success" onClick={viewListDetails}>
+          View List
+        </Button>
+        <Button variant="danger" style={{ maxWidth: '10rem', maxHeight: '2.25rem' }} onClick={deleteOrder}>
+          Delete List
+        </Button>
+      </Card.Body>
+
     </Card>
   );
 }

@@ -60,7 +60,7 @@ export default function NewGiftForm({ listId }) {
     <>
       <Button
         variant="light"
-        className="border border-danger"
+        className="border border-danger-subtle me-2"
         onClick={handleShow}
         style={{ minWidth: '125px', color: 'green' }}
       >
@@ -69,7 +69,7 @@ export default function NewGiftForm({ listId }) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header className="bg-green" closeButton>
-          <Modal.Title style={{ color: 'green' }}>Add Item to Order</Modal.Title>
+          <Modal.Title style={{ color: 'green' }}>Gift Information</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-light">
           <Form onSubmit={handleSubmit}>

@@ -6,8 +6,8 @@ import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createList, updateList } from '../../api/listData';
-import { getAllYears } from '../../api/yearData';
-import { getAllGiftees } from '../../api/gifteeData';
+import { getYearsByUid } from '../../api/yearData';
+import { getUserGiftees } from '../../api/gifteeData';
 
 const initialState = {
   listName: '',
@@ -27,12 +27,14 @@ function ListForm({ listObj }) {
   }, [listObj, user]);
 
   useEffect(() => {
-    getAllYears().then((data) => setYears(data));
+    getYearsByUid(user.uid)?.then((data) => setYears(data));
   }, []);
 
   useEffect(() => {
-    getAllGiftees().then((data) => setGiftees(data));
+    getUserGiftees(user.id).then((data) => setGiftees(data));
   }, []);
+
+  console.log('years and giftees:', years, giftees);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
