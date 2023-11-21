@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import NewGiftForm from '../../components/forms/NewGiftModal';
 import { deleteSingleGift } from '../../api/giftData';
 import { useAuth } from '../../utils/context/authContext';
 import { getYearsByUid } from '../../api/yearData';
 import { getUserByUid } from '../../api/userData';
+import NewYearForm from '../../components/forms/CreateYearModal';
 
 export default function Gifts() {
   const [years, setYears] = useState();
@@ -35,7 +35,7 @@ export default function Gifts() {
             <h1>My Years</h1>
           </div>
           <div>
-            <NewGiftForm />
+            <NewYearForm />
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@ export default function Gifts() {
         <table className="table table-borderless">
           <thead>
             <tr>
-              <th colSpan="2" className="text-center">Christmas Year</th>
+              <th scope="col">Christmas Year</th>
               <th scope="col">Budget</th>
               <th scope="col"># Lists in Year</th>
               <th scope="col">Total Spent</th>
@@ -55,26 +55,26 @@ export default function Gifts() {
             {years ? (years?.map((y) => (
               <tr key={y.id}>
 
-                <Image
+                <td><Image
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtoFHgLrBMH0_ruJZ87Pk9KH73Germ7IJuGw&usqp=CAU"
-                  style={{ maxWidth: '60px' }}
-                  className="rounded-circle"
-                />
-
-                <td>{y.listYear}</td>
+                  style={{ maxWidth: '45px' }}
+                  className="rounded-circle p-.5"
+                />  {y.listYear}
+                </td>
                 <td>${y.yearBudget}</td>
                 <td>{y.christmasLists.length}</td>
                 <td>
-                  <Button
+                  ${y?.listsTotal}
+                  {/* <Button
                     aria-label="Remove Gift"
                     className="bg-transparent btn-sm mx-2 border-0"
                     onClick={() => deleteSingleGift(y.id).then(window.location.reload())}
                   >
                     <FontAwesomeIcon style={{ color: 'red' }} className="pe-2" icon={faTrashAlt} />
-                  </Button>
+                  </Button> */}
                 </td>
               </tr>
-            ))) : <div />}
+            ))) : null}
           </tbody>
         </table>
       </div>

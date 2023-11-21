@@ -69,7 +69,7 @@ export default function NewGiftForm({ listId }) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header className="bg-green" closeButton>
-          <Modal.Title style={{ color: 'green' }}>Add Item to Order</Modal.Title>
+          <Modal.Title style={{ color: 'green' }}>Gift Information</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-light">
           <Form onSubmit={handleSubmit}>
