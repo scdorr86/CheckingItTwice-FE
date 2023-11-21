@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Button, Image } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { deleteSingleGift } from '../../api/giftData';
+import { Image } from 'react-bootstrap';
+// import { Button, Image } from 'react-bootstrap';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+// import { deleteSingleGift } from '../../api/giftData';
 import { useAuth } from '../../utils/context/authContext';
 import { getYearsByUid } from '../../api/yearData';
 import { getUserByUid } from '../../api/userData';

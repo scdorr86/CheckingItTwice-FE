@@ -61,7 +61,7 @@ export default function NewYearForm({ year }) {
     <>
       <Button
         variant="light"
-        className="border border-danger"
+        className="border border-danger-subtle me-2"
         onClick={handleShow}
         style={{ minWidth: '125px', color: 'green' }}
       >

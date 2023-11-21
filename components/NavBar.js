@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  Navbar, //
+  Navbar,
   Container,
   Nav,
   Button,
@@ -33,7 +33,9 @@ export default function NavBar() {
             <Link passHref href="/lists/lists">
               <Nav.Link>My Lists</Nav.Link>
             </Link>
-            <Button variant="danger" onClick={signOut}>
+          </Nav>
+          <Nav className="ms-auto">
+            <Button variant="danger" className="border border-light" onClick={signOut}>
               Sign Out
             </Button>
           </Nav>
