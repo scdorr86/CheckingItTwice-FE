@@ -46,10 +46,10 @@ export default function Gifts() {
         <table className="table table-borderless">
           <thead>
             <tr>
-              <th scope="col">Christmas Year</th>
-              <th scope="col">Budget</th>
-              <th scope="col"># Lists in Year</th>
-              <th scope="col">Total Spent</th>
+              <th style={{ color: 'green' }} scope="col">Christmas Year</th>
+              <th style={{ color: 'green' }} scope="col">Budget</th>
+              <th style={{ color: 'green' }} scope="col"># Lists in Year</th>
+              <th style={{ color: 'green' }} scope="col">Total Spent</th>
             </tr>
           </thead>
           <tbody>
@@ -81,7 +81,7 @@ export default function Gifts() {
       </div>
 
       <div className="mt-5 d-flex justify-content-between align-items-center">
-        <h4>Number of Christmases: {years?.length}</h4>
+        <h4 style={{ color: 'red' }}>Number of Christmases: {years?.length}</h4>
       </div>
     </>
   );
