@@ -1,4 +1,5 @@
 @import 'bootstrap/dist/css/bootstrap.css';
+@import url('https://fonts.googleapis.com/css2?family=Explora&family=Fira+Sans:ital,wght@1,100&family=Gloria+Hallelujah&family=Just+Me+Again+Down+Here&family=Lobster&family=Mountains+of+Christmas:wght@400;700&family=Nanum+Brush+Script&family=Schoolbell&display=swap');
 
 html,
 body {
@@ -30,4 +31,65 @@ body {
   height: 75px;
   width: 175px;
   margin-right: 10px;
+}
+
+.tryFont {
+  font-family: 'Mountains of Christmas';
+  font-size: 24px;
+  color: rgb(1, 192, 1);
+  font-weight: bold;
+}
+
+.pgHeaders {
+  font-family: 'Mountains of Christmas';
+  font-size: 48px;
+  font-weight: bold;
+  padding-top: 4px;
+}
+
+.pgFooters {
+  font-family: 'Mountains of Christmas';
+  font-size: 32px;
+  font-weight: bold;
+  padding-top: 1px;
+}
+
+th {
+  font-family: 'Just Me Again Down Here';
+  font-size: x-large;
+  text-decoration: underline;
+}
+
+td {
+  font-family: 'Schoolbell';
+  font-size: larger;
+}
+
+.signOut {
+  font-family: 'Mountains of Christmas';
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.yrBtn, .giftBtn, .lstBtn {
+  font-family: 'Mountains of Christmas';
+  font-weight: bold;
+  font-size: large;
+}
+
+.welcome {
+  font-family: 'Mountains of Christmas';
+  font-weight: bolder;
+  font-size: 45px;
+}
+
+.forms {
+  font-family: 'Mountains of Christmas';
+  font-size: xx-large;
+  text-decoration: underline;
+  text-decoration-color: red;
+}
+
+.formInput {
+  font-family: 'Schoolbell';
 }

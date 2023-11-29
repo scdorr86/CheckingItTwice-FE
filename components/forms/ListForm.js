@@ -64,7 +64,7 @@ function ListForm({ listObj }) {
   return (
     <Form onSubmit={handleSubmit}>
       <div className="mem-form-text">
-        <h2 className="mt-5">{listObj.id ? 'Update' : 'Create New'} List</h2>
+        <h2 className="forms mt-5">{listObj.id ? 'Update' : 'Create New'} List</h2>
       </div>
 
       {/* listName INPUT  */}

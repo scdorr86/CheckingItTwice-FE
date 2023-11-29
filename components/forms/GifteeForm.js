@@ -34,13 +34,13 @@ function GifteeForm({ gifteeObj }) {
     console.warn(formInput);
     if (gifteeObj.id) {
       updateGiftee(formInput)
-        .then(() => router.push('/lists/lists'));
+        .then(() => router.push('/giftees/giftees'));
     } else {
       const payload = { ...formInput, userId: user.id };
       // console.log('list payload:', payload);
       createGiftee(payload)
         .then(() => {
-          router.push('/lists/lists');
+          router.push('/giftees/giftees');
         });
     }
   };

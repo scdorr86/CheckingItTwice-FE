@@ -26,14 +26,14 @@ function ListsPage() {
     <div className="d-flex flex-column align-items-center">
       <div className="d-flex align-items-center">
         <Image
-          className="me-2"
+          className="me-3"
           src="/logo.png"
           style={{
-            height: '40px', // Adjust the height as needed
+            height: '55px', // Adjust the height as needed
             margin: '0',
           }}
         />
-        <h1 style={{ color: 'green' }}>My Lists</h1>
+        <h1 className="pgHeaders m-4" style={{ color: 'green' }}>My Lists</h1>
       </div>
 
       {filteredLists?.length === 0 ? (
@@ -57,10 +57,10 @@ function ListsPage() {
           </div>
           <div className="d-flex">
             <Link passHref href="/lists/new">
-              <Button className="btn btn-light me-2 border border-danger-subtle" style={{ color: 'red' }}>New List</Button>
+              <Button className="lstBtn btn btn-light me-2 border border-danger-subtle" style={{ color: 'red' }}>New List</Button>
             </Link>
             <Link passHref href="/giftees/new">
-              <Button className="btn btn-light border border-danger-subtle" style={{ color: 'red' }}>New Giftee</Button>
+              <Button className="giftBtn btn btn-light border border-danger-subtle" style={{ color: 'red' }}>New Giftee</Button>
             </Link>
           </div>
         </>

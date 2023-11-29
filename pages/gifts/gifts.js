@@ -25,7 +25,7 @@ export default function Gifts() {
       <div>
         <div className="d-flex justify-content-between align-items-center">
           <div>
-            <h1>My Gifts</h1>
+            <h1 className="pgHeaders">My Gifts</h1>
           </div>
           <div>
             <NewGiftForm />
@@ -39,22 +39,22 @@ export default function Gifts() {
           <thead>
             <tr>
               <th scope="col">Image</th>
-              <th scope="col">Gift Name</th>
-              <th scope="col">Price</th>
-              <th scope="col">Ordered From</th>
-              <th scope="col">Delete Gift</th>
+              <th className="text-left" scope="col">Gift Name</th>
+              <th className="text-center" scope="col">Price</th>
+              <th className="text-center" scope="col">Ordered From</th>
+              <th className="text-center" scope="col">Delete Gift</th>
             </tr>
           </thead>
           <tbody>
             {gifts ? (gifts?.map((gift) => (
               <tr key={gift.id}>
                 <td>
-                  <Image src={gift.imageUrl} alt={gift.giftName} style={{ maxWidth: '75px' }} />
+                  <Image src={gift.imageUrl} alt={gift.giftName} style={{ maxWidth: '80px', maxHeight: '80px' }} />
                 </td>
-                <td>{gift.giftName}</td>
-                <td>${gift.price}</td>
-                <td>{gift.orderedFrom}</td>
-                <td>
+                <td className="text-left">{gift.giftName}</td>
+                <td className="text-center">${gift.price}</td>
+                <td className="text-center">{gift.orderedFrom}</td>
+                <td className="text-center">
                   <Button aria-label="Remove Gift" className="bg-transparent btn-sm mx-2 border-0" onClick={() => deleteSingleGift(gift.id).then(window.location.reload())}>
                     <FontAwesomeIcon style={{ color: 'red' }} className="pe-2" icon={faTrashAlt} />
                   </Button>
@@ -66,7 +66,7 @@ export default function Gifts() {
       </div>
 
       <div className="mt-5 d-flex justify-content-between align-items-center">
-        <h4>Number of Gifts: {gifts?.length}</h4>
+        <h4 className="pgFooters d-flex" style={{ color: 'red' }}>Number of Gifts: <h4 className="pgFooters ms-2" style={{ color: 'green' }}>{gifts?.length}</h4></h4>
       </div>
     </>
   );

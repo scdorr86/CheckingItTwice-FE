@@ -49,7 +49,7 @@ export default function AddGiftForm({ listId }) {
     <>
       <Button
         variant="success"
-        className=""
+        className="giftBtn"
         onClick={handleShow}
         style={{ minWidth: '125px' }}
       >
