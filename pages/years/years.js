@@ -33,7 +33,7 @@ export default function Gifts() {
       <div>
         <div className="d-flex justify-content-between align-items-center">
           <div>
-            <h1>My Years</h1>
+            <h1 className="pgHeaders">My Years</h1>
           </div>
           <div>
             <NewYearForm />
@@ -46,26 +46,29 @@ export default function Gifts() {
         <table className="table table-borderless">
           <thead>
             <tr>
-              <th style={{ color: 'green' }} scope="col">Christmas Year</th>
-              <th style={{ color: 'green' }} scope="col">Budget</th>
-              <th style={{ color: 'green' }} scope="col"># Lists in Year</th>
-              <th style={{ color: 'green' }} scope="col">Total Spent</th>
+              <th style={{ color: '' }} scope="col">Christmas Year</th>
+              <th className="text-center" style={{ color: '' }} scope="col">Budget</th>
+              <th className="text-center" style={{ color: '' }} scope="col"># Lists in Year</th>
+              <th className="text-center" style={{ color: '' }} scope="col">Total Spent</th>
+              <th className="text-center" style={{ color: '' }} scope="col">Budget Remaining</th>
             </tr>
           </thead>
           <tbody>
             {years ? (years?.map((y) => (
               <tr key={y.id}>
 
-                <td><Image
+                {/* 🎅🏻<Image
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtoFHgLrBMH0_ruJZ87Pk9KH73Germ7IJuGw&usqp=CAU"
                   style={{ maxWidth: '45px' }}
                   className="rounded-circle p-.5"
-                />  {y.listYear}
+                /> */}
+
+                <td> 🎄 {y.listYear}
                 </td>
-                <td>${y.yearBudget}</td>
-                <td>{y.christmasLists.length}</td>
-                <td>
-                  ${y?.listsTotal}
+                <td className="text-center">{y.yearBudget.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
+                <td className="text-center">{y.christmasLists.length}</td>
+                <td className="text-center">
+                  {y?.listsTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
                   {/* <Button
                     aria-label="Remove Gift"
                     className="bg-transparent btn-sm mx-2 border-0"
@@ -74,6 +77,7 @@ export default function Gifts() {
                     <FontAwesomeIcon style={{ color: 'red' }} className="pe-2" icon={faTrashAlt} />
                   </Button> */}
                 </td>
+                {y?.budgetVar > 0 ? <td className="text-center" style={{ color: 'green', fontWeight: 'bolder' }}>{y?.budgetVar.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td> : <td className="text-center" style={{ color: 'red', fontWeight: 'bolder' }}>{y?.budgetVar.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>}
               </tr>
             ))) : null}
           </tbody>
@@ -81,7 +85,7 @@ export default function Gifts() {
       </div>
 
       <div className="mt-5 d-flex justify-content-between align-items-center">
-        <h4 style={{ color: 'red' }}>Number of Christmases: {years?.length}</h4>
+        <h4 className="pgFooters d-flex" style={{ color: 'red' }}>Number of Christmases: <h4 className="pgFooters ms-2" style={{ color: 'green' }}>{years?.length}</h4></h4>
       </div>
     </>
   );

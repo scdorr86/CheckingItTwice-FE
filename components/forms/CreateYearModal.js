@@ -61,7 +61,7 @@ export default function NewYearForm({ year }) {
     <>
       <Button
         variant="light"
-        className="border border-danger-subtle me-2"
+        className="yrBtn border border-danger-subtle me-2"
         onClick={handleShow}
         style={{ minWidth: '125px', color: 'green' }}
       >
@@ -70,13 +70,13 @@ export default function NewYearForm({ year }) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header className="bg-green" closeButton>
-          <Modal.Title style={{ color: 'green' }}>Christmas Year Details</Modal.Title>
+          <Modal.Title className="forms" style={{ color: 'green' }}>Christmas Year Details</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-light">
           <Form onSubmit={handleSubmit}>
 
             {/* List Year */}
-            <FloatingLabel controlId="floatingInput1" label="List Year" className="mb-3">
+            <FloatingLabel controlId="floatingInput1" label="List Year" className="formInput mb-3">
               <Form.Control
                 type="text"
                 placeholder="Enter Christmas Year"
@@ -89,7 +89,7 @@ export default function NewYearForm({ year }) {
             </FloatingLabel>
 
             {/* Year Budget  */}
-            <FloatingLabel controlId="floatingInput1" label="YearBudget" className="mb-3">
+            <FloatingLabel controlId="floatingInput1" label="YearBudget" className="formInput mb-3">
               <Form.Control
                 type="number"
                 style={{ color: 'red' }}
@@ -101,7 +101,7 @@ export default function NewYearForm({ year }) {
               />
             </FloatingLabel>
 
-            <Button className="btn btn-success" type="submit">{year ? 'Update ' : 'Create '}List Year</Button>
+            <Button className="yrBtn btn btn-success" type="submit">{year ? 'Update ' : 'Create '}List Year</Button>
           </Form>
         </Modal.Body>
         <Modal.Footer />

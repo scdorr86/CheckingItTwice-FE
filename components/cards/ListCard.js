@@ -1,12 +1,17 @@
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { Button, Card } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faList, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 import { deleteSingleList } from '../../api/listData';
 
 function ListCard({ listObj }) {
   const router = useRouter();
+  const [isHovered, setIsHovered] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
-  const deleteOrder = () => {
+  const deleteList = () => {
     if (window.confirm(`Delete Order ${listObj?.listName}?`)) {
       deleteSingleList(listObj?.id).then(() => window.location.reload());
     }
@@ -26,11 +31,24 @@ function ListCard({ listObj }) {
       <Card.Text>Christmas Year: {listObj?.christmasYear?.listYear}</Card.Text>
       <Card.Text>List Total: ${listObj?.listTotal}</Card.Text>
       <Card.Body className="d-flex">
-        <Button className="mb-1 me-1" style={{ maxWidth: '10rem', maxHeight: '2.25rem' }} variant="success" onClick={viewListDetails}>
-          View List
+        <Button
+          className="mb-1 me-1"
+          style={{ maxWidth: '10rem', maxHeight: '2.25rem' }}
+          variant="success"
+          onClick={viewListDetails}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        >
+          {hovered ? 'View List' : <FontAwesomeIcon style={{ color: 'white' }} className="pe-0" icon={faList} />}
         </Button>
-        <Button variant="danger" style={{ maxWidth: '10rem', maxHeight: '2.25rem' }} onClick={deleteOrder}>
-          Delete List
+        <Button
+          variant="danger"
+          style={{ maxWidth: '10rem', maxHeight: '2.25rem' }}
+          onClick={deleteList}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          {isHovered ? 'Delete List' : <FontAwesomeIcon style={{ color: 'white' }} className="pe-0" icon={faTrashAlt} />}
         </Button>
       </Card.Body>
 

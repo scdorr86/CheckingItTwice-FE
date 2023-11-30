@@ -60,7 +60,7 @@ export default function NewGiftForm({ listId }) {
     <>
       <Button
         variant="light"
-        className="border border-danger-subtle me-2"
+        className="giftBtn border border-danger-subtle me-2"
         onClick={handleShow}
         style={{ minWidth: '125px', color: 'green' }}
       >
