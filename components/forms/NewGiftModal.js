@@ -69,13 +69,13 @@ export default function NewGiftForm({ listId }) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header className="bg-green" closeButton>
-          <Modal.Title style={{ color: 'green' }}>Gift Information</Modal.Title>
+          <Modal.Title className="newGift" style={{ color: 'green' }}>Gift Information</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-light">
           <Form onSubmit={handleSubmit}>
 
             {/* Gift Name  */}
-            <FloatingLabel controlId="floatingInput1" label="Gift Name" className="mb-3">
+            <FloatingLabel controlId="floatingInput1" label="Gift Name" className="formInput mb-3">
               <Form.Control
                 type="text"
                 placeholder="Enter Gift Name"
@@ -88,7 +88,7 @@ export default function NewGiftForm({ listId }) {
             </FloatingLabel>
 
             {/* IMAGE INPUT  */}
-            <FloatingLabel controlId="floatingInput2" label="Gift Image" className="mb-3">
+            <FloatingLabel controlId="floatingInput2" label="Gift Image" className="formInput mb-3">
               <Form.Control
                 type="url"
                 style={{ color: 'red' }}
@@ -101,7 +101,7 @@ export default function NewGiftForm({ listId }) {
             </FloatingLabel>
 
             {/* Ordered From  */}
-            <FloatingLabel controlId="floatingInput1" label="ordered from" className="mb-3">
+            <FloatingLabel controlId="floatingInput1" label="ordered from" className="formInput mb-3">
               <Form.Control
                 type="text"
                 style={{ color: 'red' }}
@@ -114,7 +114,7 @@ export default function NewGiftForm({ listId }) {
             </FloatingLabel>
 
             {/* Price  */}
-            <FloatingLabel controlId="floatingInput1" label="Price" className="mb-3">
+            <FloatingLabel controlId="floatingInput1" label="Price" className="formInput mb-3 pt-1">
               <Form.Control
                 type="number"
                 style={{ color: 'red' }}
@@ -126,7 +126,7 @@ export default function NewGiftForm({ listId }) {
               />
             </FloatingLabel>
 
-            <Button className="btn btn-success" type="submit">{listId ? 'Add New ' : 'Create '}Gift</Button>
+            <Button className="giftBtn btn btn-success" type="submit">{listId ? 'Add New ' : 'Create '}Gift</Button>
           </Form>
         </Modal.Body>
         <Modal.Footer />

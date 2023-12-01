@@ -89,7 +89,7 @@ export default function NewYearForm({ year }) {
             </FloatingLabel>
 
             {/* Year Budget  */}
-            <FloatingLabel controlId="floatingInput1" label="YearBudget" className="formInput mb-3">
+            <FloatingLabel controlId="floatingInput1" label="YearBudget" className="formInput mb-3 p-1">
               <Form.Control
                 type="number"
                 style={{ color: 'red' }}

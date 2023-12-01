@@ -26,32 +26,53 @@ function ListCard({ listObj }) {
   console.log('this is the year:', listObj?.christmasYear?.listYear);
 
   return (
-    <Card display="flex" className="m-2 justify-content-between align-items-center p-1" style={{ width: '18rem' }}>
-      <Card.Title>{listObj?.listName}</Card.Title>
-      <Card.Text>Christmas Year: {listObj?.christmasYear?.listYear}</Card.Text>
-      <Card.Text>List Total: ${listObj?.listTotal}</Card.Text>
-      <Card.Body className="d-flex">
-        <Button
-          className="mb-1 me-1"
-          style={{ maxWidth: '10rem', maxHeight: '2.25rem' }}
-          variant="success"
-          onClick={viewListDetails}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-        >
-          {hovered ? 'View List' : <FontAwesomeIcon style={{ color: 'white' }} className="pe-0" icon={faList} />}
-        </Button>
-        <Button
-          variant="danger"
-          style={{ maxWidth: '10rem', maxHeight: '2.25rem' }}
-          onClick={deleteList}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          {isHovered ? 'Delete List' : <FontAwesomeIcon style={{ color: 'white' }} className="pe-0" icon={faTrashAlt} />}
-        </Button>
-      </Card.Body>
+    <Card className="m-2 p-1" style={{ width: '25rem' }}>
+      <Card.Body className="p-0">
+        <div className="row g-0">
+          {/* Centered: Image */}
+          <div className="col d-flex justify-content-center align-items-center">
+            <Card.Img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtoFHgLrBMH0_ruJZ87Pk9KH73Germ7IJuGw&usqp=CAU"
+              style={{ width: '145px', height: '190px', marginRight: '20px' }}
+              className="rounded-circle p-.5"
+            />
+          </div>
 
+          {/* Centered: Attributes and Buttons */}
+          <div className="col d-flex justify-content-center align-items-center">
+            <div className="d-flex flex-column justify-content-between">
+              <div>
+                <div className="cardTitleWrapper">
+                  <div className="cardTitle mb-3">{listObj?.listName}</div>
+                </div>
+                <Card.Text className="d-flex cardText">Christmas Year: <p className="ms-2 cardP">{listObj?.christmasYear?.listYear}</p></Card.Text>
+                <Card.Text className="d-flex cardText">List Total: <p className="ms-2 cardP">{listObj?.listTotal?.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</p></Card.Text>
+              </div>
+              <div className="d-flex mt-3">
+                <Button
+                  className="mb-1 me-1"
+                  style={{ maxWidth: '10rem', maxHeight: '2.25rem' }}
+                  variant="success"
+                  onClick={viewListDetails}
+                  onMouseEnter={() => setHovered(true)}
+                  onMouseLeave={() => setHovered(false)}
+                >
+                  {hovered ? 'View List' : <FontAwesomeIcon style={{ color: 'white' }} className="pe-0" icon={faList} />}
+                </Button>
+                <Button
+                  variant="danger"
+                  style={{ maxWidth: '10rem', maxHeight: '2.25rem' }}
+                  onClick={deleteList}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  {isHovered ? 'Delete List' : <FontAwesomeIcon style={{ color: 'white' }} className="pe-0" icon={faTrashAlt} />}
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Card.Body>
     </Card>
   );
 }

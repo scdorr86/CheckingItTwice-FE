@@ -86,10 +86,71 @@ td {
 .forms {
   font-family: 'Mountains of Christmas';
   font-size: xx-large;
+  font-weight: bolder;
   text-decoration: underline;
   text-decoration-color: red;
 }
 
 .formInput {
   font-family: 'Schoolbell';
+  font-size: larger;
+}
+
+.listInput {
+  font-family: 'Just Me Again Down Here';
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+.option {
+  font-family: 'Mountains of Christmas';
+  font-weight: bolder;
+  font-size: x-large;
+  color: red;
+}
+
+.newGift {
+  font-family: 'Mountains of Christmas';
+  font-size: x-large;
+  font-weight: bolder;
+  text-decoration: underline;
+  text-decoration-color: red;
+}
+
+.cardTitle {
+  font-family: 'Gloria Hallelujah';
+  color: red;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.lstDtls{
+  font-family: 'Gloria Hallelujah';
+}
+
+.cardTitleWrapper {
+  max-width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  -webkit-line-clamp: 2;
+}
+
+.cardText {
+  font-family: 'Schoolbell';
+  /* color: rgb(1, 192, 1); */
+  color: black;
+  font-size: large;
+}
+
+.cardP{
+  color: green;
+  font-weight: bold;
+}
+
+.footer {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: x-small;
 }

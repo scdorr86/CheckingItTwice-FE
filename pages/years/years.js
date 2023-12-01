@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Image } from 'react-bootstrap';
+// import { Image } from 'react-bootstrap';
 // import { Button, Image } from 'react-bootstrap';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
