@@ -29,11 +29,11 @@ export default function ListDetails() {
       <div>
         <div className="d-flex justify-content-between align-items-center">
           <div>
-            <h1>{list.listName}s List</h1>
-            <h3>For: {list?.giftee?.firstName}</h3>
+            <h1 className="pgHeaders mt-1">{list?.listName}&apos;s List</h1>
+            <h3 className="lstDtls mt-3">For: {list?.giftee?.firstName}</h3>
           </div>
           <div>
-            <h4>List Total: ${list.listTotal}</h4>
+            <h4 className="lstDtls">List Total: {list?.listTotal?.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</h4>
           </div>
         </div>
       </div>

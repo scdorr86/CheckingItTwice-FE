@@ -68,7 +68,7 @@ function ListForm({ listObj }) {
       </div>
 
       {/* listName INPUT  */}
-      <FloatingLabel controlId="floatingInput1" label="List Name" className="mb-3">
+      <FloatingLabel controlId="floatingInput1" label="List Name" className="option mb-3 pt-3">
         <Form.Control
           type="text"
           placeholder="New List Title"
@@ -80,7 +80,7 @@ function ListForm({ listObj }) {
       </FloatingLabel>
 
       {/* Year Select */}
-      <FloatingLabel controlId="floatingInput1" label="Christmas Year" className="mb-3" style={{ color: 'red' }}>
+      <FloatingLabel controlId="floatingInput1" label="Christmas Year" className="option mb-3 pt-4" style={{ color: 'red' }}>
         <Form.Select
           type="text"
           placeholder="Christmas Year"
@@ -89,15 +89,15 @@ function ListForm({ listObj }) {
           onChange={handleChange}
           required
         >
-          <option key="placeholder" value=""> Choose Your Christmas Year</option>
+          <option key="placeholder" className="option" value=""> Choose Your Christmas Year</option>
           {years?.map((y) => (
-            <option style={{ color: 'red' }} key={y?.id} value={y?.id}>{y?.listYear}</option>
+            <option className="option" style={{ color: 'red' }} key={y?.id} value={y?.id}>{y?.listYear}</option>
           ))}
         </Form.Select>
       </FloatingLabel>
 
       {/* Giftee Select */}
-      <FloatingLabel controlId="floatingInput1" label="Giftee" className="mb-3" style={{ color: 'red' }}>
+      <FloatingLabel controlId="floatingInput1" label="Giftee" className="option mb-2 pt-4" style={{ color: 'red' }}>
         <Form.Select
           type="text"
           placeholder="Who is this List for?"
@@ -106,14 +106,14 @@ function ListForm({ listObj }) {
           onChange={handleChange}
           required
         >
-          <option key="placeholder" value=""> Who is this list for?</option>
+          <option key="placeholder" className="option" value=""> Who is this list for?</option>
           {giftees?.map((g) => (
-            <option style={{ color: 'red' }} key={g?.id} value={g?.id}>{g?.firstName}</option>
+            <option className="option" style={{ color: 'red' }} key={g?.id} value={g?.id}>{g?.firstName}</option>
           ))}
         </Form.Select>
       </FloatingLabel>
 
-      <Button type="submit" className="btn btn-danger">{listObj.id ? 'Update' : 'Create New'} List</Button>
+      <Button type="submit" className="lstBtn btn btn-danger">{listObj.id ? 'Update' : 'Create New'} List</Button>
     </Form>
   );
 }
