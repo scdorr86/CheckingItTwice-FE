@@ -6,6 +6,8 @@ import {
   Nav,
   // Image,
 } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 
 export default function NavFooter() {
   return (
@@ -14,12 +16,12 @@ export default function NavFooter() {
         {/* <Link passHref href="/">
           <Navbar.Brand><Image className="logo" src="/logo.png" /></Navbar.Brand>
         </Link> */}
-        <h5 className="footer mb-1 me-sm-0 align-content-center justify-content-center">Navigation:</h5>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="d-flex me-auto">
             {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
             {/* <h5 className="footer mb-1 me-sm-0">Navigation</h5> */}
+            <Nav.Link className="footer mb-1 me-sm-0 align-content-center justify-content-center">Navigation:</Nav.Link>
             <Link passHref href="/years/years">
               <Nav.Link className="footer mb-0">My Years</Nav.Link>
             </Link>
@@ -33,6 +35,9 @@ export default function NavFooter() {
               <Nav.Link className="footer mb-0">My Lists</Nav.Link>
             </Link>
           </Nav>
+          <div className="d-flex ms-auto copyright">
+            <FontAwesomeIcon className="mt-2 pe-1" icon={faCopyright} /><p>2023</p>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
