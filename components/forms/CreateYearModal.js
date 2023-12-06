@@ -9,8 +9,8 @@ import { useAuth } from '../../utils/context/authContext';
 import { createYear, updateYear } from '../../api/yearData';
 
 const initialState = {
-  ListYear: '',
-  YearBudget: 0,
+  listYear: '',
+  yearBudget: 0,
 };
 export default function NewYearForm({ year }) {
   const [show, setShow] = useState(false);
@@ -80,8 +80,8 @@ export default function NewYearForm({ year }) {
               <Form.Control
                 type="text"
                 placeholder="Enter Christmas Year"
-                name="ListYear"
-                value={formData.ListYear}
+                name="listYear"
+                value={formData.listYear}
                 onChange={handleChange}
                 style={{ color: 'red' }}
                 required
@@ -94,8 +94,8 @@ export default function NewYearForm({ year }) {
                 type="number"
                 style={{ color: 'red' }}
                 placeholder="Christmas Year Total Budget"
-                name="YearBudget"
-                value={formData.YearBudget}
+                name="yearBudget"
+                value={formData.yearBudget}
                 onChange={handleChange}
                 required
               />
