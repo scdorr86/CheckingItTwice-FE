@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 // import { Image } from 'react-bootstrap';
 // import { Button, Image } from 'react-bootstrap';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-// import { deleteSingleGift } from '../../api/giftData';
 import { useAuth } from '../../utils/context/authContext';
 import { getYearsByUid } from '../../api/yearData';
 import { getUserByUid } from '../../api/userData';
@@ -65,17 +65,16 @@ export default function Gifts() {
 
                 <td> 🎄 {y.listYear}
                 </td>
-                <td className="text-center">{y.yearBudget.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
+                <td className="text-center">{y.yearBudget.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
+
+                  <Link passHref href={`/years/edit/${y.id}`}>
+                    <FontAwesomeIcon style={{ color: 'red' }} className="ms-3 pe-2" icon={faPencil} aria-label={`Edit year with ID ${y.id}`} />
+                  </Link>
+
+                </td>
                 <td className="text-center">{y.christmasLists.length}</td>
                 <td className="text-center">
                   {y?.listsTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
-                  {/* <Button
-                    aria-label="Remove Gift"
-                    className="bg-transparent btn-sm mx-2 border-0"
-                    onClick={() => deleteSingleGift(y.id).then(window.location.reload())}
-                  >
-                    <FontAwesomeIcon style={{ color: 'red' }} className="pe-2" icon={faTrashAlt} />
-                  </Button> */}
                 </td>
                 {y?.budgetVar > 0 ? <td className="text-center" style={{ color: 'green', fontWeight: 'bolder' }}>{y?.budgetVar.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td> : <td className="text-center" style={{ color: 'red', fontWeight: 'bolder' }}>{y?.budgetVar.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>}
               </tr>
