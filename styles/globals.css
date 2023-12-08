@@ -158,3 +158,23 @@ td {
 .copyright {
   font-size: small;
 }
+
+/* .tableRowHover:hover {
+  background-color: red;
+  color: blue;
+  cursor: pointer;
+}
+
+tbody tr {
+  background-color: transparent;
+}
+
+tbody tr:hover {
+  background-color: green !important;
+  cursor: pointer;
+} */
+
+.table tbody tr:hover {
+  background-color: rgb(159, 224, 159) !important;
+  cursor: pointer;
+}
