@@ -65,7 +65,7 @@ export default function Gifts() {
 
                 <td> 🎄 {y.listYear}
                 </td>
-                <td className="text-center">{y.yearBudget.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
+                <td className="text-center tableRowHover">{y.yearBudget.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
 
                   <Link passHref href={`/years/edit/${y.id}`}>
                     <FontAwesomeIcon style={{ color: 'red' }} className="ms-3 pe-2" icon={faPencil} aria-label={`Edit year with ID ${y.id}`} />
