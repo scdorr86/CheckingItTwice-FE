@@ -8,6 +8,7 @@ import { useAuth } from '../../utils/context/authContext';
 import { getYearsByUid } from '../../api/yearData';
 import { getUserByUid } from '../../api/userData';
 import NewYearForm from '../../components/forms/CreateYearModal';
+import SideBar from '../../components/Sidebar';
 
 export default function Gifts() {
   const [years, setYears] = useState();
@@ -30,6 +31,9 @@ export default function Gifts() {
 
   return (
     <>
+    <div>
+      <SideBar />
+    </div>
       <div>
         <div className="d-flex justify-content-between align-items-center">
           <div>
