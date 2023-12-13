@@ -1,42 +1,31 @@
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-import Button from 'react-bootstrap/Button';
+import ListGroup from 'react-bootstrap/ListGroup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalculator, faHouse } from '@fortawesome/free-solid-svg-icons';
 import {
-  faArrowDown, faClapperboard, faClock, faClockRotateLeft, faFilm, faHouse, faPlayCircle, faThumbsUp, faVideoCamera,
-} from '@fortawesome/free-solid-svg-icons';
+  faAmazon, faEbay, faShopify, faEtsy as fabEtsy, faGoogle as fabGoogle,
+} from '@fortawesome/free-brands-svg-icons';
 
 export default function SideBar() {
   const router = useRouter();
+
+  const navigateTo = (route) => {
+    router.push(route);
+  };
+
   return (
-    <>
-      <div className="side-bar">
-        <br />
-        <FontAwesomeIcon icon={faHouse} />
-        <Button
-          className="bt bg-transparent border-0"
-          variant="light"
-          onClick={() => {
-            router.push('/');
-          }}
-        >Home
-        </Button> <br />
-        <br />
-        <FontAwesomeIcon icon={faFilm} /> <Link passHref href="/" className="links"> Home </Link> <br />
-        <br />
-        <FontAwesomeIcon icon={faVideoCamera} /> <Link passHref href="/"> Home </Link> <br />
+    <div className="side-bar">
+      <h4 className="list-header">Quick Links</h4>
+      <ListGroup className="center-list">
+        <ListGroup.Item action onClick={() => navigateTo('/')}><FontAwesomeIcon icon={faHouse} /> Home</ListGroup.Item>
+        <ListGroup.Item action onClick={() => navigateTo('https://www.google.com')}><FontAwesomeIcon icon={fabGoogle} /> Google</ListGroup.Item>
+        <ListGroup.Item action onClick={() => navigateTo('https://www.etsy.com')}><FontAwesomeIcon icon={fabEtsy} /> Etsy</ListGroup.Item>
         <hr className="seperator" />
-        <FontAwesomeIcon icon={faPlayCircle} /> <Link passHref href="/" className="links"> Home</Link> <br />
-        <br />
-        <FontAwesomeIcon icon={faClockRotateLeft} /><Link passHref href="/" className="links"> Home </Link> <br />
-        <br />
-        <FontAwesomeIcon icon={faClapperboard} /><Link passHref href="/" className="links"> My Home </Link> <br />
-        <br />
-        <FontAwesomeIcon icon={faClock} /><Link passHref href="/" className="links"> Home </Link> <br />
-        <br />
-        <FontAwesomeIcon icon={faThumbsUp} /><Link passHref href="/" className="links"> Home </Link> <br />  <br />
-        <FontAwesomeIcon icon={faArrowDown} /><Link passHref href="/" className="links"> Home</Link> <br />
-      </div>
-    </>
+        <ListGroup.Item action onClick={() => navigateTo('https://www.shopify.com')}><FontAwesomeIcon icon={faShopify} /> Shopify</ListGroup.Item>
+        <ListGroup.Item action onClick={() => navigateTo('https://www.amazon.com')}><FontAwesomeIcon icon={faAmazon} /> Amazon</ListGroup.Item>
+        <ListGroup.Item action onClick={() => navigateTo('https://www.ebay.com')}><FontAwesomeIcon icon={faEbay} /> Ebay</ListGroup.Item>
+        <ListGroup.Item action onClick={() => navigateTo('https://calculator.apps.chrome/')}><FontAwesomeIcon icon={faCalculator} /> Calculator</ListGroup.Item>
+      </ListGroup>
+    </div>
   );
 }

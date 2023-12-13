@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Button } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { getUserGiftees } from '../../api/gifteeData';
+import SideBar from '../../components/Sidebar';
 
 export default function Gifts() {
   const [giftees, setGiftees] = useState();
@@ -29,6 +30,9 @@ export default function Gifts() {
 
   return (
     <>
+      <div>
+        <SideBar />
+      </div>
       <div>
         <div className="d-flex justify-content-between align-items-center">
           <div>

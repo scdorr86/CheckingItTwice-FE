@@ -31,9 +31,9 @@ export default function Gifts() {
 
   return (
     <>
-    <div>
-      <SideBar />
-    </div>
+      <div>
+        <SideBar />
+      </div>
       <div>
         <div className="d-flex justify-content-between align-items-center">
           <div>
