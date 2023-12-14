@@ -7,10 +7,18 @@ import {
   Nav,
   Button,
   Image,
+  Form,
 } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import { signOut } from '../utils/auth';
 
-export default function NavBar() {
+export default function NavBar({ searchInput, setSearchInput }) {
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setSearchInput(e.target.value.toLowerCase());
+    console.log('this is search input', searchInput);
+  };
+
   return (
     <Navbar collapseOnSelect expand="lg" className="Nav" variant="">
       <Container>
@@ -34,6 +42,19 @@ export default function NavBar() {
               <Nav.Link className="tryFont m-1">My Lists</Nav.Link>
             </Link>
           </Nav>
+
+          <Form className="search d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+              value={searchInput}
+              onChange={handleChange}
+            />
+            <Button className="lstBtn" variant="">Search</Button>
+          </Form>
+
           <Nav className="ms-auto">
             <Button variant="danger" className="signOut border border-light" onClick={signOut}>
               Sign Out
@@ -44,3 +65,13 @@ export default function NavBar() {
     </Navbar>
   );
 }
+
+NavBar.propTypes = {
+  searchInput: PropTypes.string,
+  setSearchInput: PropTypes.func,
+};
+
+NavBar.defaultProps = {
+  searchInput: '',
+  setSearchInput: () => {},
+};

@@ -5,6 +5,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import NewGiftForm from '../../components/forms/NewGiftModal';
 import { deleteSingleGift, getUserGifts } from '../../api/giftData';
 import { useAuth } from '../../utils/context/authContext';
+import SideBar from '../../components/Sidebar';
 
 export default function Gifts() {
   const [gifts, setGifts] = useState();
@@ -22,6 +23,9 @@ export default function Gifts() {
 
   return (
     <>
+      <div>
+        <SideBar />
+      </div>
       <div>
         <div className="d-flex justify-content-between align-items-center">
           <div>
