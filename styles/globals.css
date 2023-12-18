@@ -175,9 +175,14 @@ tbody tr:hover {
   cursor: pointer;
 } */
 
-.table tbody tr:hover {
+.table tbody tr:hover td {
   background-color: rgb(159, 224, 159) !important;
+  transition: all .2s ease-in;
   cursor: pointer;
+}
+
+.table tbody tr td {
+  background-color: white;
 }
 
 .side-bar {
@@ -191,7 +196,11 @@ tbody tr:hover {
   border-radius: 5%;
   margin-top: 70px;
 }
-
+@media only screen and (min-width: 120px) and (max-width: 1371px) {
+  .side-bar {
+       left: 933px;
+  }
+}
 .center-list {
   display: flex;
   flex-direction: column;

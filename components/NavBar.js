@@ -7,18 +7,13 @@ import {
   Nav,
   Button,
   Image,
-  Form,
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { signOut } from '../utils/auth';
+import Search from './Search';
 
 export default function NavBar({ searchInput, setSearchInput }) {
-  const handleChange = (e) => {
-    console.log(e.target.value);
-    setSearchInput(e.target.value.toLowerCase());
-    console.log('this is search input', searchInput);
-  };
-
+  console.log(searchInput, setSearchInput);
   return (
     <Navbar collapseOnSelect expand="lg" className="Nav" variant="">
       <Container>
@@ -42,19 +37,7 @@ export default function NavBar({ searchInput, setSearchInput }) {
               <Nav.Link className="tryFont m-1">My Lists</Nav.Link>
             </Link>
           </Nav>
-
-          <Form className="search d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-              value={searchInput}
-              onChange={handleChange}
-            />
-            <Button className="lstBtn" variant="">Search</Button>
-          </Form>
-
+          <Search searchInput={searchInput} setSearchInput={setSearchInput} />
           <Nav className="ms-auto">
             <Button variant="danger" className="signOut border border-light" onClick={signOut}>
               Sign Out
