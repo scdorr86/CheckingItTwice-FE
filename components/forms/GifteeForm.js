@@ -33,7 +33,7 @@ function GifteeForm({ gifteeObj }) {
     e.preventDefault();
     console.warn(formInput);
     if (gifteeObj.id) {
-      updateGiftee(formInput)
+      updateGiftee(gifteeObj.id, formInput)
         .then(() => router.push('/giftees/giftees'));
     } else {
       const payload = { ...formInput, userId: user.id };
