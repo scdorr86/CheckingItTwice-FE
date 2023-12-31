@@ -10,7 +10,7 @@ import { getUserByUid } from '../../api/userData';
 import NewYearForm from '../../components/forms/CreateYearModal';
 import SideBar from '../../components/Sidebar';
 
-export default function Gifts() {
+export default function Years() {
   const [years, setYears] = useState();
   const [regUser, setRegUser] = useState();
   const { user } = useAuth();
