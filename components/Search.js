@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import handleSearch from '../api/searchData';
+import { useMyContextTest } from '../utils/context/useContext';
 
 const debounce = (func, delay) => {
   let timeoutId;
@@ -12,6 +13,8 @@ const debounce = (func, delay) => {
 };
 
 export default function Search({ searchInput, setSearchInput }) {
+  const { contextVariable, setContextVariable } = useMyContextTest();
+
   const [debouncedSearch] = useState(() => debounce(handleSearch, 1000));
 
   const handleChange = (e) => {
@@ -25,13 +28,18 @@ export default function Search({ searchInput, setSearchInput }) {
       try {
         const data = await debouncedSearch(searchInput);
         console.log('Search results:', data);
+        setContextVariable(data);
       } catch (error) {
         console.error('Error fetching search results', error);
       }
     };
 
     fetchData();
-  }, [searchInput, debouncedSearch]);
+  }, [searchInput, debouncedSearch, setContextVariable]);
+
+  useEffect(() => {
+    console.log('Context Variable Updated:', contextVariable);
+  }, [contextVariable]);
 
   return (
     <Form className="search d-flex">
