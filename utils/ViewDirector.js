@@ -12,6 +12,7 @@ const ViewDirectorBasedOnUserAuthStatus = ({ component: Component, pageProps }) 
     user, userLoading, updateUser,
   } = useAuth();
   const [searchInput, setSearchInput] = useState('');
+  // const [searchReturn, setSearchReturn] = useState({});
 
   // if user state is null, then show loader
   if (userLoading) {
