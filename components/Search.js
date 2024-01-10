@@ -31,6 +31,7 @@ export default function Search({ searchInput, setSearchInput }) {
     };
 
     fetchData();
+    console.log('debouncedSearch after fetch:', debouncedSearch);
   }, [searchInput, debouncedSearch]);
 
   return (
