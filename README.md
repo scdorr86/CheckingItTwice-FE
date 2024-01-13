@@ -1,4 +1,4 @@
-# React/Next.js Django Auth Template
+# Checkin it Twice
 
 ## Topics
 ___
@@ -7,7 +7,7 @@ ___
 
 **NOTES:** 
         
-## Learn More about Next.js
+## learn
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
