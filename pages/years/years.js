@@ -9,11 +9,13 @@ import { getYearsByUid } from '../../api/yearData';
 import { getUserByUid } from '../../api/userData';
 import NewYearForm from '../../components/forms/CreateYearModal';
 import SideBar from '../../components/Sidebar';
+import { useMyContextTest } from '../../utils/context/useContext';
 
 export default function Years() {
   const [years, setYears] = useState();
   const [regUser, setRegUser] = useState();
   const { user } = useAuth();
+  const { contextVariable } = useMyContextTest();
 
   useEffect(() => {
     getUserByUid(user?.uid).then(setRegUser);
@@ -25,6 +27,7 @@ export default function Years() {
 
   console.log('regUser:', regUser, regUser?.id);
   console.log('Years:', years);
+  console.log('testing context var:', contextVariable);
 
   // const filteredYears = years.filter((y) => y.userId === regUser.id);
   // console.log(filteredYears);
