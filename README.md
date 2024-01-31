@@ -97,7 +97,7 @@ fabulous-clafoutis-c889b5.netlify.app
 - Game session posts can also be filtered on day of week and approximate time of day as well as searched in the search bar.
 
 ## Video Walkthrough of APP NAME <!-- A loom link is sufficient -->
-https://www.loom.com/share/829b90d831ea441ba2db6bea724af210
+
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
 - [Check out the deployed site](#https://app.netlify.com/sites/fabulous-clafoutis-c889b5/configuration/general)
