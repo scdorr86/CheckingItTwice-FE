@@ -100,6 +100,7 @@ fabulous-clafoutis-c889b5.netlify.app
 
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
+
 - [Check out the deployed site](#https://app.netlify.com/sites/fabulous-clafoutis-c889b5/configuration/general)
 
 ## Project Screenshots <!-- These can be inside of your project. Look at the repos from class and see how the images are included in the readme -->
