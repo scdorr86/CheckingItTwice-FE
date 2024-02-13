@@ -96,7 +96,7 @@ fabulous-clafoutis-c889b5.netlify.app
 - For game inspiration: External API game database was used to generate additional games that users can view details of, including screenshots, in case they are on the search for a new video game to sample.
 - Game session posts can also be filtered on day of week and approximate time of day as well as searched in the search bar.
 
-## Video Walkthrough of APP NAME <!-- A loom link is sufficient -->
+## Video Walkthrough of Checkin it Twice <!-- A loom link is sufficient -->
 
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
