@@ -79,7 +79,7 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial. -->
 
 
-# GameRsvp NSS Front-end Capstone - Cameron Dorris  [![Netlify Status](https://api.netlify.com/api/v1/badges/f3a1b9d7-f222-4e90-9e80-be524c560fcd/deploy-status)](https://app.netlify.com/sites/fabulous-clafoutis-c889b5/deploys)
+# Checkin it Twice NSS Front-end Capstone - Cameron Dorris  [![Netlify Status](https://api.netlify.com/api/v1/badges/f3a1b9d7-f222-4e90-9e80-be524c560fcd/deploy-status)](https://app.netlify.com/sites/fabulous-clafoutis-c889b5/deploys)
 
 The GameRsvp Front-end Capstone project was designed to help avid gamers and their close knit community schedule gaming sessions together through the hectic day to day activities of each gamer's busy everyday life. The app allows a user to create a "game session" and make a post for all other users to see. The post will contain general information about that session including what game will be played, what day the game will be played, and an approximate time of day. Other users will be able to RSVP to the session with a click of a button (will attend, won't attend, might attend options). An RSVP list will be created from the users who have made an RSVP click to that post and the RSVP list will display that user's username under one of the RSVP sections (Attending, Not Attending, Might Attend). Users will be able to see when their friends or other gaming aquaintances are gaming and what games they will be playing and the app will hopefully allow for a greater frequency of sessions where friends can game together. 
 
