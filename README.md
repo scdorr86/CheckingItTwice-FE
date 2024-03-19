@@ -5,7 +5,7 @@ ___
 ## Getting Started
 
 
-**NOTES:** 
+
         
 ## learn
 To learn more about Next.js, take a look at the following resources:
